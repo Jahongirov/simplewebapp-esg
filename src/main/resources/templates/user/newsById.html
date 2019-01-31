@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>News</title>
+
+    <link rel="icon" sizes="96x64" href="/assets/img/esgico.ico">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="/assets/css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="/assets/css/style.min.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: black">
+    <a class="navbar-brand" href="/user/index"><img src="/assets/img/ESG new Logo — oq zolota.jpg" width="150px"/></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item ">
+                <a class="nav-link" href="/user/index">Asosiy</a>
+            </li>
+            <!--<li class="nav-item">-->
+            <!--<a class="nav-link" href="/user/about/about">Biz haqimizda</a>-->
+            <!--</li>-->
+            <li class="nav-item">
+                <a class="nav-link" href="/user/video/list">Videolar</a>
+            </li>
+            <!--<li class="nav-item">-->
+            <!--<a class="nav-link" href="/user/news/list">Yangliklar</a>-->
+            <!--</li>-->
+            <!--<li class="nav-item">-->
+            <!--<a class="nav-link" href="/user/posts/list">Maqolalar</a>-->
+            <!--</li>-->
+            <li class="nav-item">
+                <a class="nav-link" href="/user/">Test</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/user/question">Savol?</a>
+            </li>
+            <li class="nav-item dropleft">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">Profil</a>
+                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Shaxsiy kabinet</a>
+                    <a class="dropdown-item" href="/logout">chiqish</a>
+
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+<div class="card" style="min-height: 600px">
+
+    <!-- Card content -->
+    <div class="card-body">
+
+        <!-- Title -->
+        <h4 class="card-title"><strong th:text="${postid.title}"></strong></h4>
+        <!-- Text -->
+        <p class="card-text" th:text="${postid.content}"></p>
+        <hr>
+        <span th:text="${postid.createdAt}"></span>
+        <!-- Button -->
+        <a href="#" class="btn btn-primary">Print</a>
+
+    </div>
+
+</div>
+</div>
+<!-- Footer -->
+<footer class="page-footer font-small special-color-dark">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">В© 2018 Copyright:
+        <a href="https://mdbootstrap.com/bootstrap-tutorial/">design by <span  style="color: #DAA520"> fonus group</span> &copy;</a>
+    </div>
+    <!-- Copyright -->
+
+</footer>
+<script type="text/javascript" src="/assets/js/jquery-3.3.1.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="/assets/js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="/assets/js/mdb.min.js"></script>
+<script type="text/javascript" src="/assets/js/modules/waves.js"></script>
+<!-- Initializations -->
+<script type="text/javascript">
+    // Animations initialization
+    new WOW().init();
+</script>
+</body>
+</html>

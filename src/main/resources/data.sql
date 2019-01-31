@@ -1,0 +1,3 @@
+-- INSERT INTO role (id, name) VALUES (10,'ROLE_ADMIN');
+-- INSERT INTO role (id, name) VALUES (20,'ROLE_MODERATOR');
+-- INSERT INTO role (id, name) VALUES (30,'ROLE_USER');

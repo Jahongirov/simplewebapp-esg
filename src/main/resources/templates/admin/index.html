@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Index</title>
+
+    <link rel="icon" sizes="96x64" href="/assets/img/esgico.ico">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/mdb.min.css">
+    <link rel="stylesheet" href="/assets/css/style.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/adminIndex.css">
+
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: black">
+    <a class="navbar-brand" href="#"><img src="/assets/img/ESG new Logo — oq zolota.jpg" width="150px"/></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="/admin">Asosiy  <span class="sr-only">(current)</span></a>
+            </li>
+            <!--<li class="nav-item">-->
+                <!--<a class="nav-link" href="/admin/category">Kategory</a>-->
+            <!--</li>-->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">Kategoriyalar</a>
+                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="/admin/category">Savol kategoriyasi</a>
+                    <a class="dropdown-item" href="/admin/test/category">Test kategoriyasi</a>
+
+                </div>
+            </li>
+            <!--<li class="nav-item">-->
+                <!--<a class="nav-link" href="/admin/question">Savollar</a>-->
+            <!--</li>-->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">Savollar</a>
+                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink1">
+                    <a class="dropdown-item" href="/admin/question">Javob berish</a>
+                    <a class="dropdown-item" href="/admin/question/lists">Savollar listi</a>
+
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/user-list">Foydalanuvchilar</a></li>
+          <li class="nav-item">  <a class="nav-link" href="/admin/test">Test</a></li>
+          <li class="nav-item">  <a class="nav-link" href="/admin/author/list">Postlar</a></li>
+          <li class="nav-item">  <a class="nav-link" href="/admin/news/list">Yangiliklar</a></li>
+          <li>  <a class="nav-link" href="/admin/video/video-list">Videolar</a></li>
+          <li>  <a class="nav-link" href="/logout">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+    <div class="card" id="indexCard">
+
+<div class="card-body">
+    <h3 class="text-center">Settings</h3>
+    <hr>
+    <div id="line-basic" style="height: 300px; width: 100%;"></div>
+    <br>
+    <div id="container" style="height: 300px; width: 100%;"></div>
+
+</div>
+</div>
+</div>
+<br>
+<footer class="page-footer font-small special-color-dark">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2018 Copyright:
+        <a href="#!"  style="color: #DAA520">Fonus</a>
+    </div>
+    <!-- Copyright -->
+
+</footer>
+<script src="/assets/js/jquery-3.3.1.min.js"></script>
+<script src="/assets/js/popper.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/mdb.min.js"></script>
+<script src="/assets/plugins/highchart/highcharts.js"></script>
+<script src="/assets/plugins/highchart/highcharts-3d.js"></script>
+<script src="/assets/plugins/highchart/modules/exporting.js"></script>
+<script src="/assets/plugins/jQuery-Knob-master/dist/jquery.knob.min.js"></script>
+<script type="text/javascript">
+    Highcharts.chart('line-basic', {
+
+        title: {
+            text: 'Count users'
+        },
+
+        subtitle: {
+            text: 'Source: fonus'
+        },
+
+        yAxis: {
+            title: {
+                text: 'count'
+            }
+        },
+        xAxis: {
+            categories: [ 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                allowPointSelect: true
+            }
+        },
+
+        series: [{
+            name: 'Users',
+            data: [58, 67, 71,62, 73, 80, 1]
+        }],
+
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+
+    });
+
+    Highcharts.chart('container', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Count Question of Categories'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            name: 'Brands',
+            colorByPoint: true,
+            data: [{
+                name: 'Chrome',
+                y: 61.41,
+                sliced: true,
+                selected: true
+            }, {
+                name: 'Internet Explorer',
+                y: 11.84
+            }, {
+                name: 'Firefox',
+                y: 10.85
+            }, {
+                name: 'Edge',
+                y: 4.67
+            }, {
+                name: 'Safari',
+                y: 4.18
+            }, {
+                name: 'Sogou Explorer',
+                y: 1.64
+            }, {
+                name: 'Opera',
+                y: 1.6
+            }, {
+                name: 'QQ',
+                y: 1.2
+            }, {
+                name: 'Other',
+                y: 2.61
+            }]
+        }]
+    });
+    </script>
+</body>
+</html>

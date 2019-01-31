@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>sign in</title>
+
+    <link rel="icon" sizes="96x64" href="/assets/img/esgico.ico">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/mdb.min.css">
+    <link rel="stylesheet" href="/assets/css/style.min.css">
+
+    <style type="text/css">
+        .form-dark .font-small {
+            font-size: 0.8rem; }
+
+        .form-dark [type="radio"] + label,
+        .form-dark [type="checkbox"] + label {
+            font-size: 0.8rem; }
+
+        .form-dark [type="checkbox"] + label:before {
+            top: 2px;
+            width: 15px;
+            height: 15px; }
+
+        .form-dark .md-form label {
+            color: #fff; }
+
+        .form-dark input[type=text]:focus:not([readonly]) {
+            border-bottom: 1px solid #00C851;
+            -webkit-box-shadow: 0 1px 0 0 #00C851;
+            box-shadow: 0 1px 0 0 #00C851; }
+
+        .form-dark input[type=text]:focus:not([readonly]) + label {
+            color: #fff; }
+
+        .form-dark input[type=password]:focus:not([readonly]) {
+            border-bottom: 1px solid #00C851;
+            -webkit-box-shadow: 0 1px 0 0 #00C851;
+            box-shadow: 0 1px 0 0 #00C851; }
+
+        .form-dark input[type=password]:focus:not([readonly]) + label {
+            color: #fff; }
+
+        .form-dark input[type="checkbox"] + label:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 17px;
+            height: 17px;
+            z-index: 0;
+            border: 1.5px solid #fff;
+            border-radius: 1px;
+            margin-top: 2px;
+            -webkit-transition: 0.2s;
+            transition: 0.2s; }
+
+        .form-dark input[type="checkbox"]:checked + label:before {
+            top: -4px;
+            left: -3px;
+            width: 12px;
+            height: 22px;
+            border-style: solid;
+            border-width: 2px;
+            border-color: transparent #00c851 #00c851 transparent;
+            -webkit-transform: rotate(40deg);
+            -ms-transform: rotate(40deg);
+            transform: rotate(40deg);
+            -webkit-backface-visibility: hidden;
+            -webkit-transform-origin: 100% 100%;
+            -ms-transform-origin: 100% 100%;
+            transform-origin: 100% 100%; }
+    </style>
+
+</head>
+<body background="/assets/img/loginpage1.png">
+<div class="container-fluid">
+    <br>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+
+                <h5 class="card-header elegant-color white-text text-center py-4">
+                    <strong style="color: #DAA520">Login</strong>
+                </h5>
+
+                <!--Card content-->
+                <div class="card-body px-lg-5 pt-0">
+
+                    <!-- Form -->
+                    <form class="text-center" method="post" action="/sign/in" style="color: #757575;">
+
+                        <!-- Email -->
+                        <div class="md-form">
+                            <input type="text" id="materialLoginFormEmail" class="form-control" name="username">
+                            <label for="materialLoginFormEmail">Login yoki E-mail</label>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="md-form">
+                            <input type="password" id="materialLoginFormPassword" class="form-control" name="password">
+                            <label for="materialLoginFormPassword">Parol</label>
+                        </div>
+
+                        <div class="d-flex justify-content-around">
+                            <div>
+                                <!-- Remember me -->
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="materialLoginFormRemember">
+                                    <label class="form-check-label" for="materialLoginFormRemember">eslab qolish</label>
+                                </div>
+                            </div>
+                            <div>
+                                <!-- Forgot password -->
+                                <a href="">Passwordni unutdingizmi?</a>
+                            </div>
+                        </div>
+
+                        <!-- Sign in button -->
+                        <button class="btn  btn-rounded btn-block my-4 waves-effect z-depth-0 special-color-dark" type="submit" style="color: #DAA520">Kirish</button>
+
+                        <!-- Register -->
+                        <p>Not a member?
+                            <a href="/sign/up">Ro'yxatdan o'tish</a>
+                        </p>
+
+                        <!-- Social login -->
+                        <p>or sign in with:</p>
+                        <a type="button" class="btn-floating btn-fb btn-sm">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                        <a type="button" class="btn-floating btn-tw btn-sm">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a type="button" class="btn-floating btn-li btn-sm">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                        <a type="button" class="btn-floating btn-git btn-sm">
+                            <i class="fa fa-github"></i>
+                        </a>
+
+                    </form>
+                    <!-- Form -->
+
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+
+    </div>
+</div>
+
+
+<!-- Material form login -->
+
+<!-- Material form login -->
+<script src="/assets/js/jquery-3.3.1.min.js"></script>
+<script src="/assets/js/popper.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/mdb.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Video</title>
+
+    <link rel="icon" sizes="96x64" href="/assets/img/esgico.ico">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="/assets/css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="/assets/css/style.min.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: black">
+    <a class="navbar-brand" href="/user/index"><img src="/assets/img/ESG new Logo — oq zolota.jpg" width="150px"/></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/user/index">Asosiy</a>
+            </li>
+            <!--<li class="nav-item">-->
+            <!--<a class="nav-link" href="/user/about/about">Biz haqimizda</a>-->
+            <!--</li>-->
+            <li class="nav-item">
+                <a class="nav-link" href="/video/list">Videolar</a>
+            </li>
+            <!--<li class="nav-item">-->
+            <!--<a class="nav-link" href="/user/news/list">Yangliklar</a>-->
+            <!--</li>-->
+            <!--<li class="nav-item">-->
+            <!--<a class="nav-link" href="/user/posts/list">Maqolalar</a>-->
+            <!--</li>-->
+            <li class="nav-item">
+                <a class="nav-link" href="/index/test">Test</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/user/question">Savol?</a>
+            </li>
+            <li class="nav-item dropleft">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">Profil</a>
+                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Shaxsiy kabinet</a>
+                    <a class="dropdown-item" href="/logout">chiqish</a>
+
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<br>
+<br>
+
+
+
+
+<div class="col-md-12 ">
+    <div class="row elegant-color">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <video controls th:src="'/read/'+${postid.id}" width="850" height="500"></video>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        <div class="col-md-12">
+            <table class="table">
+                <tr>
+                    <th colspan="2"><span class="d-flex justify-content-center">Video haqida ma'lumot</span></th>
+                </tr>
+                <tr>
+                    <td><strong class="d-flex justify-content-end">Video nomi: </strong></td>
+                    <td><span
+                            th:text="${postid.name.substring(0,postid.name.indexOf('.'))}"></span></td>
+
+                </tr>
+                <tr>
+                    <td><strong class="d-flex justify-content-end">Video hajmi: </strong></td>
+                    <td><span th:text="${#numbers.formatDecimal(postid.lengthVideo*1.0/(1024*1024), 0, 2)} + ' mb'"></span></td>
+                </tr>
+                <tr>
+                    <td><strong class="d-flex justify-content-end">Video formati: </strong></td>
+                    <td> <span th:text="${postid.name.substring(postid.name.indexOf('.')+1,postid.name.length())}"></span></td>
+                </tr>
+                <tr>
+                    <td><strong class="d-flex justify-content-end">Izoh:</strong> </td>
+                    <td> <p th:text="${postid.izoh}"></p> </td>
+                </tr>
+                <tr>
+                    <td><strong class="d-flex justify-content-end">Video holati:</strong></td>
+                    <td> <div th:switch="${postid.freeOrPay}">
+                        <p th:case="true">Video pullik</p>
+                        <p th:case="false">Video tekin</p>
+                        <p th:case="*">Ma'lumot yo'q</p>
+                    </div>
+                    </td>
+                </tr>
+            </table>
+
+
+
+        </div>
+
+        <br>
+        <br>
+        <br>
+
+
+
+
+    </div>
+</div>
+
+
+
+<br>
+<br>
+
+
+<!-- Footer -->
+<footer class="page-footer font-small special-color-dark">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">В© 2018 Copyright:
+        <a href="https://mdbootstrap.com/bootstrap-tutorial/">design by <span  style="color: #DAA520"> fonus group</span> &copy;</a>
+    </div>
+    <!-- Copyright -->
+
+</footer>
+<script type="text/javascript" src="/assets/js/jquery-3.3.1.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="/assets/js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="/assets/js/mdb.min.js"></script>
+<script type="text/javascript" src="/assets/js/modules/waves.js"></script>
+<!-- Initializations -->
+<script type="text/javascript">
+    // Animations initialization
+    new WOW().init();
+</script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>sign in</title>
+
+    <link rel="icon" sizes="96x64" href="/assets/img/esgico.ico">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/mdb.min.css">
+    <link rel="stylesheet" href="/assets/css/style.min.css">
+
+
+</head>
+<body background="/assets/img/loginpage1.png">
+<div class="container-fluid">
+    <br>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+
+                <h5 class="card-header elegant-color white-text text-center py-4">
+                    <strong style="color: #DAA520">Sign up</strong>
+                </h5>
+
+                <!--Card content-->
+                <div class="card-body px-lg-5 pt-0">
+
+                    <!-- Form -->
+                    <form class="text-center" method="post" action="/sign/up" style="color: #757575;">
+
+                        <!-- username -->
+                        <div class="md-form">
+                            <input type="text" id="username" name="username" class="form-control">
+                            <label for="username">Login</label>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="md-form">
+                            <input type="password" id="password" class="form-control" name="password">
+                            <label for="password">Password</label>
+                        </div>
+                        <!-- email -->
+                        <div class="md-form">
+                            <input type="email" id="email" class="form-control" name="email">
+                            <label for="email">Email</label>
+                        </div>
+                        <!-- fullname -->
+                        <div class="md-form">
+                            <input type="text" id="fullName" class="form-control" name="fullName">
+                            <label for="fullname">Full name</label>
+                        </div>
+
+                        <div class="md-form">
+                            <!--<label for="roles">User type</label>-->
+                            <!--<select name="roles" id="roles" class="form-control">-->
+                                <!--<option th:each="user:${ users}" th:value="${user.id}" th:text="${user.roles}">-->
+                                <!--</option>-->
+                            <!--</select>-->
+                            <select name="roles" id="roles" class="form-control">
+                                <option value=""  disabled selected>rol tanlash</option>
+                                <option th:each="role:${ roles}" th:value="${role.id}" th:text="${role.name}">
+                                </option>
+                            </select>
+                        </div>
+                        <!-- Sign in button -->
+                        <button class="btn  btn-rounded btn-block my-4 waves-effect z-depth-0 special-color-dark" type="submit" style="color: #DAA520">Sign up</button>
+
+                        <!-- Register -->
+                        <p>Not a member?
+                            <a href="/sign/in">sign in</a>
+                        </p>
+
+                        <!-- Social login -->
+                        <p>or sign in with:</p>
+                        <a type="button" class="btn-floating btn-fb btn-sm">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                        <a type="button" class="btn-floating btn-tw btn-sm">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a type="button" class="btn-floating btn-li btn-sm">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                        <a type="button" class="btn-floating btn-git btn-sm">
+                            <i class="fa fa-github"></i>
+                        </a>
+
+                    </form>
+                    <!-- Form -->
+
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+
+    </div>
+</div>
+
+
+<!-- Material form login -->
+
+<!-- Material form login -->
+<script src="/assets/js/jquery-3.3.1.min.js"></script>
+<script src="/assets/js/popper.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/mdb.min.js"></script>
+</body>
+</html>

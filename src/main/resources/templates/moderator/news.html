@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>News</title>
+
+    <link rel="icon" sizes="96x64" href="/assets/img/esgico.ico">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="/assets/css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="/assets/css/style.min.css" rel="stylesheet">
+    <style type="text/css">
+        /* Necessary for full page carousel*/
+        html,
+        body,
+        header,
+        .view {
+            height: 100%;
+
+        }
+
+        /* Carousel*/
+        .carousel,
+        .carousel-item,
+        .carousel-item.active {
+            height: 100%;
+        }
+
+        .carousel-inner {
+            height: 100%;
+        }
+
+        @media (min-width: 800px) and (max-width: 850px) {
+            .navbar:not(.top-nav-collapse) {
+                background: #1C2331 !important;
+            }
+        }
+
+    </style>
+
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/mdb.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: black">
+    <a class="navbar-brand" href="/user/index"><img src="/assets/img/ESG new Logo — oq zolota.jpg" width="150px"/></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item ">
+                <a class="nav-link" href="/moderator/index/">Asosiy</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/moderator/about">Biz haqimizda</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/moderator/news/list">Yangliklar <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/moderator/post/list">Maqolalar</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/moderator/question">Savollar</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">Profil</a>
+                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Shaxsiy kabinet</a>
+                    <a class="dropdown-item" href="/logout">chiqish</a>
+
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<br>
+<br>
+<br>
+<br>
+<!--<table>-->
+<!--<tr>-->
+<!--<td>Title:</td>-->
+<!--<td>Content:</td>-->
+<!--<td>View count:</td>-->
+<!--</tr>-->
+<!--<tr th:each="mynew:${news}">-->
+<!--<td th:text="${mynew.title}"></td>-->
+
+<!--<td></td>-->
+<!--<td></td>-->
+<!--</tr>-->
+
+<!--</table>-->
+<div class="container">
+    <!--<div class="input-group md-form form-sm form-2 pl-0">-->
+    <!--<form action="" method="get">-->
+    <!--<input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search" name="name">-->
+    <!--&lt;!&ndash;<div class="input-group-append">&ndash;&gt;-->
+    <!--&lt;!&ndash;<span class="input-group-text dark lighten-3" id="basic-text1"><i class="fa fa-search text-grey" aria-hidden="true"></i></span>&ndash;&gt;-->
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--<button type="submit">ok</button>-->
+    <!--</form>-->
+    <form action="/user/news/search" method="get">
+        <div class="input-group mb-3">
+
+            <input type="text" class="form-control" placeholder="Search" name="title">
+            <div class="input-group-append">
+                <button class="btn btn-success" type="submit">Go</button>
+            </div>
+
+        </div>
+
+    </form>
+    <!--</div>-->
+
+
+    <table>
+        <tr th:each="mynew:${news}">
+            <td>
+
+                <div class="row">
+
+                    <!-- Grid column -->
+                    <div class="col-lg-5">
+
+                        <!-- Featured image -->
+                        <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4">
+                            <img class="img-fluid" src="/assets/img/money.png" alt="Sample image">
+
+                            <a>
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
+                        </div>
+
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-lg-7">
+
+                        <!-- Post title -->
+                        <h3 class="font-weight-bold mb-3"><strong th:text="${mynew.title}"></strong></h3>
+                        <p>Kontent: &nbsp; <strong th:text="${mynew.content}"></strong></p>
+                        <!-- Read more button -->
+                        <a th:href="'/moderator/news/'+${mynew.id}">To'liq</a>
+
+                    </div>
+                    <!-- Grid column -->
+
+                </div>
+                <br>
+                <br>
+                <br>
+            </td>
+        </tr>
+    </table>
+
+
+</div>
+<!-- Footer -->
+<footer class="page-footer font-small special-color-dark">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">В© 2018 Copyright:
+        <a href="https://mdbootstrap.com/bootstrap-tutorial/">design by <span  style="color: #DAA520"> fonus group</span> &copy;</a>
+    </div>
+    <!-- Copyright -->
+
+</footer>
+<script type="text/javascript" src="/assets/js/jquery-3.3.1.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="/assets/js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="/assets/js/mdb.min.js"></script>
+<script type="text/javascript" src="/assets/js/modules/waves.js"></script>
+<!-- Initializations -->
+<script type="text/javascript">
+    // Animations initialization
+    new WOW().init();
+</script>
+</body>
+</html>

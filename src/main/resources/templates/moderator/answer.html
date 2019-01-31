@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Questions</title>
+
+    <link rel="icon" sizes="96x64" href="/assets/img/esgico.ico">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/mdb.min.css">
+    <link rel="stylesheet" href="/assets/css/style.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/adminIndex.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: black">
+    <a class="navbar-brand" href="/user/index"><img src="/assets/img/ESG new Logo — oq zolota.jpg" width="150px"/></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/moderator/index/">Asosiy</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/moderator/about">Biz haqimizda</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/moderator/news/list">Yangliklar</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/moderator/post/list">Maqolalar</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/moderator/question">Savollar <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">Profil</a>
+                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Shaxsiy kabinet</a>
+                    <a class="dropdown-item" href="/logout">chiqish</a>
+
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+    <div class="card">
+        <h3 class="text-center">Question</h3>
+        <hr>
+        <div class="card-body">
+            <div>
+                <form action="/moderator/question-answer/save" method="post" th:each="question:${questions}">
+                    <div class="form-group">
+                        <label>Berilgan savol:</label>
+                        <a th:text="${question.text}" class="text-danger" data-toggle="collapse" data-target="#demo"></a>
+                    </div>
+                    <div id="demo" class="collapse">
+                        <div class="form-group">
+                            <label>javob berish:</label>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <input type="hidden" name="questionId" th:value="${question.id}">
+                            <textarea name="text" id="text" cols="30" rows="5" class="form-control"></textarea>
+                        </div>
+
+                        <button class="btn  btn-rounded btn-block my-4 waves-effect z-depth-0 special-color-dark" type="submit" style="color: #DAA520">Javob berish</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/assets/js/jquery-3.3.1.min.js"></script>
+<script src="/assets/js/popper.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/mdb.min.js"></script>
+</body>
+</html>

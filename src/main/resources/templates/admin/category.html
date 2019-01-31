@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Question category</title>
+
+    <link rel="icon" sizes="96x64" href="/assets/img/esgico.ico">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/mdb.min.css">
+    <link rel="stylesheet" href="/assets/css/style.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: black">
+    <a class="navbar-brand" href="#"><img src="/assets/img/ESG new Logo — oq zolota.jpg" width="150px"/></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="/admin">Asosiy  <span class="sr-only">(current)</span></a>
+            </li>
+            <!--<li class="nav-item">-->
+            <!--<a class="nav-link" href="/admin/category">Kategory</a>-->
+            <!--</li>-->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">Kategoriyalar</a>
+                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="/admin/category">Savol kategoriyasi</a>
+                    <a class="dropdown-item" href="/admin/test/category">Test kategoriyasi</a>
+
+                </div>
+            </li>
+            <!--<li class="nav-item">-->
+            <!--<a class="nav-link" href="/admin/question">Savollar</a>-->
+            <!--</li>-->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">Savollar</a>
+                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink1">
+                    <a class="dropdown-item" href="#!">Javob berish</a>
+                    <a class="dropdown-item" href="/admin/question/lists">Savollar listi</a>
+
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/user-list">Foydalanuvchilar</a></li>
+            <li class="nav-item">  <a class="nav-link" href="/admin/test">Test</a></li>
+            <li class="nav-item">  <a class="nav-link" href="/admin/author/list">Postlar</a></li>
+            <li class="nav-item">  <a class="nav-link" href="/admin/news/list">Yangiliklar</a></li>
+            <li>  <a class="nav-link" href="/admin/video/video-list">Videolar</a></li>
+            <li>  <a class="nav-link" href="/logout">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+<br>
+<br>
+<br>
+<br>
+<div class="container"><div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="text-center" style="color: #DAA520">Savol kategoriya qo'shish</h3>
+                <hr>
+                <form action="/admin/category/save" method="post">
+                    <div class="form-group">
+                        <label for="name">Kategoriya:</label>
+                        <input type="text" class="form-control" name="name" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Tarif:</label>
+                        <textarea name="description" class="form-control"  id="description" cols="30" rows="3"></textarea>
+                    </div>
+
+                    <button class="btn  btn-rounded btn-block my-4 waves-effect z-depth-0 special-color-dark" type="submit" style="color: #DAA520">Saqlash</button>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div></div>
+
+
+
+
+<!--<ul>-->
+    <!--<li th:each="category:${categories}">-->
+        <!--<span th:text="${category.name}"></span>-->
+    <!--</li>-->
+<!--</ul>-->
+<br>
+<!--<button id="awd" name="awd" onclick="clic(this);">ok</button>-->
+<h3 class="text-center" style="color: #DAA520">Kategoriyalar ro'yxati</h3>
+<hr>
+
+<table class="table table-striped" id="categoryTable">
+    <thead>
+    <tr>
+        <th>name:</th>
+        <th>description:</th>
+        <th>id:</th>
+        <th>action:</th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:each="category:${categories}">
+        <td th:text="${category.name}"></td>
+        <td th:text="${category.description}"></td>
+        <td th:text="${category.id}"></td>
+        <td><button type="submit" class="forEdit" ><i class="fa fa-edit"></i></button>
+        <button type="submit"   id="forDelete" th:onclick="'getPropId(\'' + ${category.id} + '\');'"><i class="fa fa-trash-alt "></i></button>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Edit</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form action="/admin/category/update" method="post">
+                    <div class="form-group">
+                        <label for="name">Kategoriya:</label>
+                        <input type="hidden" name="id" id="id">
+                        <input type="text" class="form-control" name="name" id="name1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Tarif:</label>
+                        <textarea name="description" class="form-control"  id="description1" cols="30" rows="3"></textarea>
+                    </div>
+
+                    <button class="btn  btn-rounded btn-block my-4 waves-effect z-depth-0 special-color-dark" type="submit" style="color: #DAA520">Saqlash</button>
+
+                </form>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="/assets/js/jquery-3.3.1.min.js"></script>
+<script src="/assets/js/popper.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/mdb.min.js"></script>
+
+<script type="text/javascript">
+    function getPropId(inputID){
+        $(document).ready(function () {
+            // alert(inputID);
+            $.ajax({
+                url: '/admin/category/delete/' + inputID,
+                type: 'POST',
+                success: function (data) {
+                    if (data) {
+                        $.ajax({
+                            url:"/admin/category/list",
+                            type:"POST",
+                            success:function (res) {
+                                console.log(res);
+                                var e = $("#categoryTable tbody");
+                                e.html("");
+                                res.map(function (item) {
+                                    e.append("<tr>" +
+                                        "<td>"+item.name+"</td>"+
+                                        "<td>"+item.description+"</td>"+
+                                        "<td>"+item.id+"</td>"+
+                                        "<td><button type='button' class='forEdit'><i class='fa fa-edit'></i>"+
+                                        "<button type='button' class='forDelete' onclick=\"getPropId('"+item.id+"')\"><i class='fa fa-trash-alt'></i></td>"+
+                                        "</tr>");
+                                });
+                                $(".forEdit").on("click",function () {
+                                    $("#myModal").modal('show');
+                                    var name1 = $(this).parent().prev().prev().prev().text();
+                                    // console.log(name1);
+                                    var description1 = $(this).parent().prev().prev().text();
+                                    var id = $(this).parent().prev().text();
+                                    $("#name1").val(name1);
+                                    $("#description1").val(description1);
+                                });
+                            }
+                        });
+                        alert('Member Deleted!');
+                        // categoryTable.ajax.reload();
+                    } else {
+                        alert('Member from this id not found!');
+                    }
+                }
+            });
+        });
+            }
+
+            $(".forEdit").on("click",function () {
+                $("#myModal").modal('show');
+                var name1 = $(this).parent().prev().prev().prev().text();
+                console.log(name1);
+                var description1 = $(this).parent().prev().prev().text();
+                var id = $(this).parent().prev().text();
+                $("#name1").val(name1);
+                $("#description1").val(description1);
+               $("#id").val(id);
+                 // alert(id);
+
+            });
+            function getPropEditId(inputID) {
+                // alert(inputID);
+                   // var data = categoryTable.row($(this).parents('tr')).data();
+
+
+
+            }
+     // });
+
+</script>
+</body>
+</html>
